@@ -1,7 +1,7 @@
 * **入门**
 * * [引入](README.md)
 * * [快速开始](begin.md)
-* **后台设置**
+* **基础**
 * * [菜单](menu.md)
   * [图标](icon.md)
   * [侧栏](sidebar.md)

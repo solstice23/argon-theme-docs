@@ -1,0 +1,50 @@
+---
+title: time
+date: 2021-03-14 00:14:13
+permalink: /pages/0b8087/
+categories:
+  - docs
+  - shortcode
+tags:
+  - 
+---
+# 发布时间/编辑时间
+
+Argon 提供了一些短代码的支持。
+
+在文章中插入短代码即可让其被解析。
+
+## 介绍
+
+这两个短代码分别可以插入文章的发布时间和最后编辑时间。
+
+## 用法
+
+```
+[post_time 参数名="参数值"][/post_time]
+[post_modified_time 参数名="参数值"][/post_modified_time]
+```
+
+| 参数名 | 可选值 | 默认值        | 解释     | 是否必须 |
+| ------ | ------ | ------------- | -------- | -------- |
+| format | 字符串 | `Y-n-d G:i:s` | 时间格式 | 否       |
+
+>参数不是必需的，如果不写某个参数则会使用默认值
+
+## 例子
+
+### 代码
+
+```
+[post_time][/post_time]
+[post_modified_time][/post_modified_time]
+[post_time format="Y/n/j ag:i:s"][/post_time]
+```
+
+### 效果
+
+> `2020-1-01 08:00:00`
+>
+> `2020-1-02 08:00:00`
+>
+> `2020/1/1 上午8:00:00`

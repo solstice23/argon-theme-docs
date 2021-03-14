@@ -1,13 +1,3 @@
----
-title: github
-date: 2021-03-14 00:14:13
-permalink: /pages/dbc828/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # Github 信息卡
 
 Argon 提供了一些短代码的支持。

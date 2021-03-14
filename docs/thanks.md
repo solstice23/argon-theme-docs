@@ -12,7 +12,7 @@ Argon 使用 [GPL V3.0](https://github.com/solstice23/argon-theme/blob/master/LI
 
 所有 Argon 主题的使用者
 
-@yzxoi (文档移植/完善), @AMSing (图标及 Banner 构思)
+[@yzxoi](https://github.com/yzxoi) (文档移植/完善), @AMSing (图标及 Banner 构思)
 
 ## 开源相关
 

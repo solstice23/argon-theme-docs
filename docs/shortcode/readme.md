@@ -1,13 +1,3 @@
----
-title: readme
-date: 2021-03-14 00:14:13
-permalink: /pages/f0a6d2/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 短代码
 
 Argon 主题提供了多种短代码的支持，这些短代码可以给文章中增加特殊的内容，让文章的表达形式更加丰富。

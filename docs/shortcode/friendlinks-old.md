@@ -1,13 +1,3 @@
----
-title: friendlinks-old
-date: 2021-03-14 00:14:13
-permalink: /pages/b3ea30/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 友情链接列表 (旧)
 
 Argon 提供了一些短代码的支持。

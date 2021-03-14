@@ -1,13 +1,3 @@
----
-title: collapse
-date: 2021-03-14 00:14:13
-permalink: /pages/2c8f2a/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 折叠区块
 
 Argon 提供了一些短代码的支持。

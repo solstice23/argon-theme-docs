@@ -1,13 +1,3 @@
----
-title: alert
-date: 2021-03-14 00:14:13
-permalink: /pages/7041e1/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 提示
 
 Argon 提供了一些短代码的支持。

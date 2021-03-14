@@ -1,13 +1,3 @@
----
-title: noshortcode
-date: 2021-03-14 00:14:13
-permalink: /pages/dd2581/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 让短代码不被解析
 
 如果你不想让某段内容中的短代码被解析，想原样输出这段内容，只需要将这段内容用 `[noshortcode][/noshortcode]` 包裹即可。

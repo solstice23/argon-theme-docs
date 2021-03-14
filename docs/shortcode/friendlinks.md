@@ -1,13 +1,3 @@
----
-title: friendlinks
-date: 2021-03-14 00:14:13
-permalink: /pages/5abe81/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 友情链接列表
 
 Argon 提供了一些短代码的支持。

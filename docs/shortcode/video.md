@@ -1,13 +1,3 @@
----
-title: video
-date: 2021-03-14 00:14:13
-permalink: /pages/4d3c13/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 视频
 
 Argon 提供了一些短代码的支持。

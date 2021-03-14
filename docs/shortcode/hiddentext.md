@@ -1,13 +1,3 @@
----
-title: hiddentext
-date: 2021-03-14 00:14:13
-permalink: /pages/d8ca96/
-categories:
-  - docs
-  - shortcode
-tags:
-  - 
----
 # 隐藏文本
 
 Argon 提供了一些短代码的支持。

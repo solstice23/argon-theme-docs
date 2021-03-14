@@ -24,11 +24,23 @@
 					'/.*/_sidebar.md': '/_sidebar.md'
 				},
   				themeColor: '#5E72E4',
-				search: 'auto'
+				search: {
+					placeholder: {
+						'/zh-cn/': '搜索',
+						'/': 'Type to search'
+					},
+					noData: {
+						'/zh-cn/': '找不到结果',
+						'/': 'No Results'
+					}
+				}
 			}
 		</script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+		<script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
 		<script>
 			/*if (typeof navigator.serviceWorker !== 'undefined') {
 				navigator.serviceWorker.register('sw.js')

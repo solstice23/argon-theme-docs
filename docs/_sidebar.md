@@ -27,6 +27,7 @@
 * * [友情链接](friendlinks.md)
   * [说说](shuoshuo.md)
   * [留言板](comments.md)
+  * [归档时间轴](archives.md)
 * **其他**
 * * [页脚信息](footer-info.md)
   * [FAQ](faq.md)

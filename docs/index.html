@@ -66,10 +66,9 @@
 			}
 		</style>
 		<script>
-			let adHeightInterval = setInterval(function(){
+			setInterval(function(){
 				if ($(".ads").attr("style") != ""){
 					$(".ads").attr("style", "");
-					clearInterval(adHeightInterval);
 				}
 			});
 		</script>

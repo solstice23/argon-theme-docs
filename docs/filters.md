@@ -1,6 +1,6 @@
 # Filters
 
-[Fliters](https://developer.wordpress.org/plugins/hooks/filters/) 是 Wordpress 提供的特性，允许使用插件/子主题来对主题中一些值进行过滤。
+[Filter](https://developer.wordpress.org/plugins/hooks/filters/) 是 Wordpress 提供的特性，允许使用插件/子主题来对主题中一些值进行过滤。
 
 欲添加一个 Filter，可以使用 `add_filter` 函数，该函数接受两个参数，第一个为 filter 的名称，第二个为过滤函数。Wordpress 将待过滤的内容传参传入过滤函数，过滤函数返回过滤后的结果。详见 [Wordpress 文档](https://developer.wordpress.org/plugins/hooks/filters/)。
 

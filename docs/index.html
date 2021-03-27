@@ -61,9 +61,17 @@
 			}*/
 		</script>
 		<style>
-			.ads, .ads > div {
+			.ads{
 				max-height: 200px !important;
 			}
 		</style>
+		<script>
+			let adHeightInterval = setInterval(function(){
+				if ($(".ads").attr("style") != ""){
+					$(".ads").attr("style", "");
+					clearInterval(adHeightInterval);
+				}
+			});
+		</script>
 	</body>
 </html>

@@ -40,11 +40,18 @@
 					function(hook) {
 						hook.ready(function() {
 							$(".sidebar-nav").before(
-								'<div class="ads"><div>' + 
+								'<div class="sidebar-ad"><div>' + 
 									'<ins class="adsbygoogle" style="display:inline-block;width:250px;height:200px" data-ad-client="ca-pub-3812804248355921" data-ad-slot="3309362847"></ins>' + 
 									'<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' + 
 								'</div></div>'
 							);
+						});
+						hook.afterEach(function(html) {
+							return html + 
+							'<div class="footer-ad">' + 
+								'<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3812804248355921" data-ad-slot="7158776816" data-ad-format="auto" data-full-width-responsive="true"></ins>' + 
+								'<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' + 
+							'</div>';
 						});
 					}
 				]
@@ -61,16 +68,11 @@
 			}*/
 		</script>
 		<style>
-			.ads{
-				max-height: 200px !important;
+			.sidebar-ad{
+				/*max-height: 200px !important;*/
+				margin-top: 30px;
+				margin-left: -18px;
 			}
 		</style>
-		<script>
-			/*setInterval(function(){
-				if ($(".ads").attr("style") != ""){
-					$(".ads").attr("style", "");
-				}
-			});*/
-		</script>
 	</body>
 </html>

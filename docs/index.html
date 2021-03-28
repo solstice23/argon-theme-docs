@@ -47,6 +47,7 @@
 							);
 						});
 						hook.doneEach(function() {
+							$("#main").append('<div class="eof-tip"></div>');
 							$("#main").append(
 								'<div class="footer-ad">' + 
 									'<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3812804248355921" data-ad-slot="7158776816" data-ad-format="auto" data-full-width-responsive="true"></ins>' + 
@@ -73,6 +74,35 @@
 				/*max-height: 200px !important;*/
 				margin-top: 30px;
 				margin-left: -18px;
+			}
+			.footer-ad {
+				margin-top: 50px;
+				border: #ccc solid 1px;
+				padding-bottom: 35px;
+				padding-top: 10px;
+				border-radius: 4px;
+			}
+			.footer-ad:before {
+				content: 'Advertisement';
+				text-align: center;
+				width: 100%;
+				display: block;
+				font-size: 20px;
+				opacity: .6;
+			}
+			.eof-tip {
+				margin-top: 30px;
+				margin-bottom: 70px;
+			}
+			.eof-tip:before {
+				content: '----- EOF -----';
+				width: 100%;
+				text-align: center;
+				display: block;
+				font-size: 28px;
+				color: #000;
+				font-family: sans-serif;
+				opacity: .25;
 			}
 		</style>
 	</body>

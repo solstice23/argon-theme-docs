@@ -46,6 +46,14 @@ Argon - 一个轻盈、简介、美观的 Wordpress & Hexo 主题
 
 > argon-demo 站点可在线自定义 Argon 的各种设置，预览 Argon 的所有特性。
 
+## 关于
+
+本主题项目地址：[argon-theme](https://github.com/solstice23/argon-theme)
+
+本文档项目地址：[argon-theme-docs](https://github.com/solstice23/argon-theme-docs)
+
+欢迎提 PR & Issues！
+
 ## 渲染
 
 > 以下渲染图均为 Argon 早期版本，仅供参考。

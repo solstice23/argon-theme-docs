@@ -15,6 +15,7 @@ Argon 主题提供以下 Filters。
 | argon_comment_ua_icon   | 评论区 UA 图标 HTML |
 | argon_comment_mail_notification_content   | 评论被回复时通知邮件的 HTML 内容 |
 | argon_emotion_list   | 评论表情数组，详见 [评论表情](/emotions) 章节 |
+| argon_darkmode_time_check   | 夜间模式切换为 "根据时间切换" 时的 Javascript 判断表达式|
 
 
 欢迎通过 Issue / PR 来增加有必要的 Filter。

@@ -22,3 +22,33 @@ Argon 主题提供以下 Filters。
 
 
 欢迎通过 Issue / PR 来增加有必要的 Filter。
+
+# 例子
+
+要将评论输入框 Placeholder 从默认的 "评论内容" 更换为自定义内容。
+
+在 `/wp-content/plugins` 目录下新建文件夹（名字任意），注册插件。在文件夹中新建 `main.php`。
+
+```shell
+$ mkdir custom-placeholder
+$ cd custom-placeholder
+$ touch main.php 
+```
+
+`main.php` 内容:
+
+```php
+<?php
+/*
+Plugin Name: Custom Placeholder
+Description: Just an example
+Version: 1.0
+*/
+	function replace_placeholder(){
+		return "想说什么呢?";
+	}
+	add_filter('argon_comment_textarea_placeholder' , 'replace_placeholder');
+?>
+```
+
+前往 Wordpress 插件管理页面启用这个插件，即可看到评论框 Placeholder 变成了自定义的文本。

@@ -15,6 +15,12 @@ Argon 主题提供以下 Filters。
 | argon_comment_ua_icon   | 评论区 UA 图标 HTML |
 | argon_comment_mail_notification_content   | 评论被回复时通知邮件的 HTML 内容 |
 | argon_emotion_list   | 评论表情数组，详见 [评论表情](/emotions) 章节 |
+| argon_comment_title   | 评论卡片标题 (默认为 "发送评论") |
+| argon_comment_title_editing   | 评论卡片编辑时的标题 (默认为 "编辑评论") |
+| argon_comment_title_editing   | 评论卡片编辑时的标题 (默认为 "编辑评论") |
+| apply_filters   | 评论输入框 Placeholder 的内容 (默认为 "评论内容") |
+| argon_comment_title_editing   | 评论卡片编辑时的标题 (默认为 "编辑评论") |
+
 
 
 欢迎通过 Issue / PR 来增加有必要的 Filter。

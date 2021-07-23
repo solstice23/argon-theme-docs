@@ -4,6 +4,8 @@ Argon 提供了一些短代码的支持。
 
 在文章中插入短代码即可让其被解析。
 
+> 该短代码适配了 Gutenberg 编辑器区块，更推荐使用 Gutenberg 编辑器可视化插入。
+
 ## 介绍
 
 该短代码可以插入一个 Github Repo 信息卡，可以跳转到相应的 Github Repo 地址，显示介绍、Star数、Fork 数预览。

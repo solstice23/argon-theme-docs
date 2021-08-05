@@ -10,8 +10,8 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 		<div id="app"></div>
+		<div id="background" style="--height: 60vh;"></div>
 		<script>
 			window.$docsify = {
 				name: 'Argon Theme Docs',
@@ -36,25 +36,30 @@
 					}
 				},
 				plugins: [
-					/*function(hook) {
-						hook.ready(function() {
+					function(hook) {
+						/*hook.ready(function() {
 							$(".sidebar-nav").before(
 								'<div class="sidebar-ad"><div>' + 
 									'<ins class="adsbygoogle" style="display:inline-block;width:250px;height:200px" data-ad-client="ca-pub-3812804248355921" data-ad-slot="3309362847"></ins>' + 
 									'<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' + 
 								'</div></div>'
 							);
-						});
+						});*/
 						hook.doneEach(function() {
-							$("#main").append('<div class="eof-tip"></div>');
-							$("#main").append(
-								'<div class="footer-ad">' + 
-									'<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3812804248355921" data-ad-slot="7158776816" data-ad-format="auto" data-full-width-responsive="true"></ins>' + 
-									'<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' + 
-								'</div>'
-							);
+							$(".header").remove();
+							$("#main").before(`
+								<div class="header">
+									<div class="header-container">
+										<div class="title">
+											<span>${$("#main > h1")[0].innerText}<span>
+											<div class="subtitle">Argon Theme Docs</div>
+										</div>
+									</div>
+								</div>
+							`);
+							$($("#main > h1")[0]).remove();
 						});
-					}*/
+					}
 				]
 			}
 		</script>
@@ -62,47 +67,196 @@
 		<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
-		<script>
-			/*if (typeof navigator.serviceWorker !== 'undefined') {
-				navigator.serviceWorker.register('sw.js')
-			}*/
-		</script>
-	<!--	<style>
-			.sidebar-ad{
-				/*max-height: 200px !important;*/
+		<style>
+			#main {
+				background: #fff;
+				border-radius: 15px;
+				box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%);
+				margin-top: calc(-45vh + 250px);
+				max-width: 1100px;
+				margin-bottom: 50px;
+			}
+			.header {
+                height: 60vh;
+                width: 100vw;
+                padding-left: var(--sidebar-width);
+                margin-left: calc(0px - var(--sidebar-width));
+				transition: all .25s ease-out;
+            }
+			body.close .header{
+				padding-left: 0;
+				margin-left: 0;
+			}
+			.title {
+				font-size: 50px;
+				font-weight: 600;
+				color: #fff;
+				padding-top: 15vh
+			}
+			.subtitle {
+				font-size: 26px;
 				margin-top: 30px;
-				margin-left: -18px;
-			}
-			.footer-ad {
-				margin-top: 50px;
-				border: #ccc solid 1px;
-				padding-bottom: 35px;
-				padding-top: 10px;
-				border-radius: 4px;
-			}
-			.footer-ad:before {
-				content: 'Advertisement';
-				text-align: center;
-				width: 100%;
-				display: block;
-				font-size: 20px;
 				opacity: .6;
+				font-weight: 400
 			}
-			.eof-tip {
-				margin-top: 30px;
-				margin-bottom: 70px;
+			.header-container {
+				max-width: 1100px;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 0 25px;
 			}
-			.eof-tip:before {
-				content: '----- EOF -----';
+			#background{
+                background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				height: clamp(60vh, var(--height), 100vh);
+				z-index: -1;
+			}
+			aside.sidebar {
+				box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%);
+				border: none;
+				background: #fff;
+			}
+			.sidebar-toggle .sidebar-toggle-button {
+				transition: all .2s ease;
+				border-radius: 0 6px 6px 0;
+				background: #fff;
+				color: #5e72e4;
+				box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+			}
+			p.tip, blockquote {
+				border-radius: 3px !important;
+			}
+			.markdown-section p a, .markdown-section ul a{
+				color: #5e72e4 !important;
+				text-decoration: none !important;
+				position: relative;
+			}
+			.markdown-section p a:before, .markdown-section ul a:before {
+				content: " ";
+				position: absolute;
+				top: auto;
+				bottom: 0px;
+				left: 0;
 				width: 100%;
-				text-align: center;
+				height: 1px;
+				background-color: #5e72e4;
+				transition: all 0.2s;
+				transform: scaleX(0);
+				backface-visibility: hidden;
+			}
+			.markdown-section p a:hover:before, .markdown-section ul a:hover:before {
+				transform: scaleX(1);
+			}
+			.markdown-section h1,
+			.markdown-section h2,
+			.markdown-section h3 {
+				position: relative;
+				padding: 0;
+				border: none;
+				font-weight: 600;
+				text-decoration: none !important;
+			}
+			.markdown-section h1 a,
+			.markdown-section h2 a,
+			.markdown-section h3 a{
+				text-decoration: none !important;
+			}
+			.markdown-section h1:after,
+			.markdown-section h2:after,
+			.markdown-section h3:after {
+				content: "";
 				display: block;
-				font-size: 28px;
-				color: #000;
-				font-family: sans-serif;
-				opacity: .25;
+				position: absolute;
+				background: #5e72e4;
+				opacity: 0.25;
+				pointer-events: none;
+				border-radius: 15px;
+				left: -2px;
+				bottom: 0px;
+			}
+			.markdown-section h1:after {
+				width: 45px;
+				height: 13px;
+			}
+			.markdown-section h2:after {
+				width: 40px;
+				height: 11px;
+			}
+			.markdown-section h3:after {
+				width: 30px;
+				height: 9px;
+			}
+			.markdown-section h1.text-center:after,
+			.markdown-section h1[style*="text-align: center"]:after,
+			.markdown-section h1[style*="text-align:center"]:after,
+			.markdown-section h1[class*="text-align-center"]:after,
+			.markdown-section h2.text-center:after,
+			.markdown-section h2[style*="text-align: center"]:after,
+			.markdown-section h2[style*="text-align:center"]:after,
+			.markdown-section h2[class*="text-align-center"]:after,
+			.markdown-section h3.text-center:after,
+			.markdown-section h3[style*="text-align: center"]:after,
+			.markdown-section h3[style*="text-align:center"]:after,
+			.markdown-section h3[class*="text-align-center"]:after {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.markdown-section h1.text-right:after,
+			.markdown-section h1[style*="text-align: right"]:after,
+			.markdown-section h1[style*="text-align:right"]:after,
+			.markdown-section h1[class*="text-align-right"]:after,
+			.markdown-section h2.text-right:after,
+			.markdown-section h2[style*="text-align: right"]:after,
+			.markdown-section h2[style*="text-align:right"]:after,
+			.markdown-section h2[class*="text-align-right"]:after,
+			.markdown-section h3.text-right:after,
+			.markdown-section h3[style*="text-align: right"]:after,
+			.markdown-section h3[style*="text-align:right"]:after,
+			.markdown-section h3[class*="text-align-right"]:after {
+				left: unset;
+				right: -2px;
+			}
+			#main:after {
+				content: '- EOF -';
+				position: absolute;
+				bottom: -40px;
+				left: 0;
+				right: 0;
+				text-align: center;
+				color: #fff;
+				font-size: 18px;
+				font-weight: 200;
+				opacity: .5;
+				pointer-events: none;
+			}
+			input[type="search"] {
+				box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%) !important;
+				transition: all .2s ease !important;
+				margin: 20px !important;
+			}
+			.sidebar .search .input-wrap {
+				border: none;
+			}
+			input[type="search"]:focus {
+				box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%) !important;
+			}
+			.sidebar-nav ul>li>span, .sidebar-nav ul>li>strong, .sidebar nav ul>li>span, .sidebar nav ul>li>strong {
+				border: none;
+				margin-bottom: 0;
+			}
+			.github-corner svg {
+				color: var(--theme-color);
+				fill: #fff;
+				opacity: .5;
 			}
 		</style>
-	-->
+		<script>
+			$(window).scroll(function(){
+				$("#background").css("--height", 60 + $(window).scrollTop() / ($(window).height() * .25) * 40 + "vh");
+			});
+		</script>
 	</body>
 </html>

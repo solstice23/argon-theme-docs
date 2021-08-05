@@ -104,6 +104,7 @@
 				margin-left: auto;
 				margin-right: auto;
 				padding: 0 25px;
+				white-space: nowrap;
 			}
 			#background{
                 background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
@@ -251,6 +252,71 @@
 				color: var(--theme-color);
 				fill: #fff;
 				opacity: .5;
+			}
+			@media (prefers-color-scheme: dark) {
+				#background {
+					background: #212121;
+				}
+
+				html {
+					background: #262626 !important;
+				}
+
+				:root {
+					--base-color: #eee;
+					--strong-color: #eee;
+					--heading-h2-color: #eee;
+					--theme-color: #8a98eb;
+					--search-input-placeholder-color: rgba(255, 255, 255, 0.4);
+					--heading-color: #eee;
+					--table-row-odd-background: #323232;
+					--table-cell-border-color: #555;
+					--hr-border: 1px solid #666;
+				}
+
+				#main {
+					background: #353535;
+				}
+
+				aside.sidebar {
+					background: #424242;
+				}
+
+				.sidebar .search .input-wrap {
+					background: transparent !important;
+				}
+
+				input[type="search"] {
+					background-color: #555 !important;
+					background-image: url("data:image/svg+xml,%3Csvg height='20px' width='20px' viewBox='0 0 24 24' fill='none' stroke='rgba(255, 255, 255, 0.3)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' preserveAspectRatio='xMidYMid meet' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10.5' cy='10.5' r='7.5' vector-effect='non-scaling-stroke'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='15.8' y2='15.8' vector-effect='non-scaling-stroke'%3E%3C/line%3E%3C/svg%3E") !important;
+				}
+
+				.sidebar-toggle .sidebar-toggle-button {
+					background: #424242;
+					color: #fff;
+				}
+
+				pre {
+					background: #212121 !important;
+				}
+
+				code {
+					color: #eee !important;
+				}
+
+				.markdown-section blockquote {
+					background: #303030;
+				}
+
+				p.tip {
+					background: #303030 !important;
+				}
+
+				.github-corner svg {
+					fill: #424242;
+					color: #fff;
+				}
+
 			}
 		</style>
 		<script>

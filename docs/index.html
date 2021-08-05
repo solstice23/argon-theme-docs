@@ -37,14 +37,11 @@
 				},
 				plugins: [
 					function(hook) {
-						/*hook.ready(function() {
-							$(".sidebar-nav").before(
-								'<div class="sidebar-ad"><div>' + 
-									'<ins class="adsbygoogle" style="display:inline-block;width:250px;height:200px" data-ad-client="ca-pub-3812804248355921" data-ad-slot="3309362847"></ins>' + 
-									'<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>' + 
-								'</div></div>'
+						hook.ready(function() {
+							$(".app-name").after(
+								'<div id="darkmode-toggle"></div>'
 							);
-						});*/
+						});
 						hook.doneEach(function() {
 							$(".header").remove();
 							$("#main").before(`
@@ -254,15 +251,15 @@
 				opacity: .5;
 			}
 			@media (prefers-color-scheme: dark) {
-				#background {
+				html.darkmode #background {
 					background: #212121;
 				}
 
-				html {
+				html.darkmode {
 					background: #262626 !important;
 				}
 
-				:root {
+				html.darkmode:root {
 					--base-color: #eee;
 					--strong-color: #eee;
 					--heading-h2-color: #eee;
@@ -274,54 +271,106 @@
 					--hr-border: 1px solid #666;
 				}
 
-				#main {
+				html.darkmode #main {
 					background: #353535;
 				}
 
-				aside.sidebar {
+				html.darkmode aside.sidebar {
 					background: #424242;
 				}
 
-				.sidebar .search .input-wrap {
+				html.darkmode .sidebar .search .input-wrap {
 					background: transparent !important;
 				}
 
-				input[type="search"] {
+				html.darkmode input[type="search"] {
 					background-color: #555 !important;
 					background-image: url("data:image/svg+xml,%3Csvg height='20px' width='20px' viewBox='0 0 24 24' fill='none' stroke='rgba(255, 255, 255, 0.3)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' preserveAspectRatio='xMidYMid meet' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10.5' cy='10.5' r='7.5' vector-effect='non-scaling-stroke'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='15.8' y2='15.8' vector-effect='non-scaling-stroke'%3E%3C/line%3E%3C/svg%3E") !important;
 				}
 
-				.sidebar-toggle .sidebar-toggle-button {
+				html.darkmode .sidebar-toggle .sidebar-toggle-button {
 					background: #424242;
 					color: #fff;
 				}
 
-				pre {
+				html.darkmode pre {
 					background: #212121 !important;
 				}
 
-				code {
+				html.darkmode code {
 					color: #eee !important;
 				}
 
-				.markdown-section blockquote {
+				html.darkmode .markdown-section blockquote {
 					background: #303030;
 				}
 
-				p.tip {
+				html.darkmode p.tip {
 					background: #303030 !important;
 				}
 
-				.github-corner svg {
+				html.darkmode .github-corner svg {
 					fill: #424242;
 					color: #fff;
 				}
-
+			}
+			#darkmode-toggle {
+				text-align: center;
+				margin-top: 18px;
+				margin-bottom: -20px;
+				cursor: pointer;
+				opacity: .6;
+				transition: all .2s ease;
+			}
+			#darkmode-toggle:hover {
+				opacity: 1;
+			}
+			#darkmode-toggle:before {
+				content: '💡 Dark Mode: OFF';
+			}
+			html.darkmode #darkmode-toggle:before {
+				content: '🌙 Dark Mode: ON';
 			}
 		</style>
 		<script>
 			$(window).scroll(function(){
 				$("#background").css("--height", 60 + $(window).scrollTop() / ($(window).height() * .25) * 40 + "vh");
+			});
+			function setDarkmode(enable){
+				if (enable == true){
+					$("html").addClass("darkmode");
+				}else{
+					$("html").removeClass("darkmode");
+				}
+				$(window).trigger("scroll");
+			}
+			function toggleDarkmode(){
+				if ($("html").hasClass("darkmode")){
+					setDarkmode(false);
+					sessionStorage.setItem("Argon_Enable_Dark_Mode", "false");
+				}else{
+					setDarkmode(true);
+					sessionStorage.setItem("Argon_Enable_Dark_Mode", "true");
+				}
+			}
+			if (sessionStorage.getItem("Argon_Enable_Dark_Mode") == "true"){
+				setDarkmode(true);
+			}
+			function toggleDarkmodeByPrefersColorScheme(media){
+				if (sessionStorage.getItem('Argon_Enable_Dark_Mode') == "false" || sessionStorage.getItem('Argon_Enable_Dark_Mode') == "true"){
+					return;
+				}
+				if (media.matches){
+					setDarkmode(true);
+				}else{
+					setDarkmode(false);
+				}
+			}
+			var darkmodeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+			darkmodeMediaQuery.addListener(toggleDarkmodeByPrefersColorScheme);
+			toggleDarkmodeByPrefersColorScheme(darkmodeMediaQuery);
+			$(document).on("click" , "#darkmode-toggle" , function(){
+				toggleDarkmode();
 			});
 		</script>
 	</body>

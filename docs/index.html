@@ -96,14 +96,14 @@
 					$("#latest-edit-time").html("最后更新于 " + humanTimeDiff(res[0].commit.author.date));
 				}
 				if (sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)) {
-					processJson(JSON.parse(sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)));
+					processJson(JSON.parse(sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'`)));
 					return;
 				}
 				fetch(`https://api.github.com/repos/solstice23/argon-theme-docs/commits?path=${getCurrentFilePath()}`)
 					.then(res => res.json())
 					.then((res) => {
 						processJson(res);
-						sessionStorage.setItem(`edit-history-${getCurrentFilePath()}'}`, JSON.stringify(res));
+						sessionStorage.setItem(`edit-history-${getCurrentFilePath()}'`, JSON.stringify(res));
 					});
 			}
 			function addPreZero(num, n) {

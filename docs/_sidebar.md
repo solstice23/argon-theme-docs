@@ -33,6 +33,7 @@
 * **其他**
 * * [页脚信息](footer-info.md)
   * [FAQ](faq.md)
+  * [贡献指南](contribute-guide.md)
   * [感谢 / 开源相关](thanks.md)
 * **链接**
 * * [argon-theme - Github](https://github.com/solstice23/argon-theme)

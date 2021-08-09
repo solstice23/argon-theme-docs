@@ -55,9 +55,111 @@
 								</div>
 							`);
 							$($("#main > h1")[0]).remove();
+							$("#edit-history").remove();
+							$("#main").after(`
+								<div class="markdown-section" id="edit-history">
+									<h2>编辑记录 <span id="latest-edit-time"></span></h2>
+									<div id="edit-history-list">
+										Loading...
+									</div>
+									<a href="https://github.com/solstice23/argon-theme-docs/edit/master/${getCurrentFilePath()}" _target="_blank" id="edit-history-link">在 Github 编辑此页面</a>
+								</div>
+							`);
+							loadFileCommitHistory();
 						});
 					}
 				]
+			}
+			function getCurrentFilePath() {
+				let name = window.location.hash.substring(1).replace(/\?(.*?)$/, '');
+				if (name == "/"){
+					name = "/README";
+				}
+				return "docs" + name + ".md";
+			}
+			function loadFileCommitHistory() {
+				const processJson = (res) => {
+					let html = "";
+					res.map((commit) => {
+						html += `
+							<div class="commit-item">
+								<a href="${commit.author.html_url}" class="commit-avatar-container" target="_blank">
+									<img dragable="false" class="commit-avatar" src="${commit.author.avatar_url}" />
+								</a>
+								<a class="commit-author" href="${commit.html_url}" target="_blank">${commit.commit.author.name}</a>
+								<span class="commit-message">${commit.commit.message}</span>
+								<span class="commit-date" title="${new Date(commit.commit.author.date).toLocaleString()}">${humanTimeDiff(commit.commit.author.date)}</span>
+							</div>
+						`;
+					});
+					$("#edit-history-list").html(html);
+					$("#latest-edit-time").html("最后更新于 " + humanTimeDiff(res[0].commit.author.date));
+				}
+				if (sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)) {
+					processJson(JSON.parse(sessionStorage.getItem(`edit-history-${getCurrentFilePath()}'}`)));
+					return;
+				}
+				fetch(`https://api.github.com/repos/solstice23/argon-theme-docs/commits?path=${getCurrentFilePath()}`)
+					.then(res => res.json())
+					.then((res) => {
+						processJson(res);
+						sessionStorage.setItem(`edit-history-${getCurrentFilePath()}'}`, JSON.stringify(res));
+					});
+			}
+			function addPreZero(num, n) {
+				var len = num.toString().length;
+				while(len < n) {
+					num = "0" + num;
+					len++;
+				}
+				return num;
+			}
+			function humanTimeDiff(time){
+				let now = new Date();
+				time = new Date(time);
+				let delta = now - time;
+				if (delta < 0){
+					delta = 0;
+				}
+				if (delta < 1000 * 60){
+					return "刚刚";
+				}
+				if (delta < 1000 * 60 * 60){
+					return parseInt(delta / (1000 * 60)) + " " + "分钟前";
+				}
+				if (delta < 1000 * 60 * 60 * 24){
+					return parseInt(delta / (1000 * 60 * 60)) + " " + "小时前";
+				}
+				let yesterday = new Date(now - 1000 * 60 * 60 * 24);
+				yesterday.setHours(0);
+				yesterday.setMinutes(0);
+				yesterday.setSeconds(0);
+				yesterday.setMilliseconds(0);
+				if (time > yesterday){
+					return "昨天" + " " + time.getHours() + ":" + addPreZero(time.getMinutes(), 2);
+				}
+				let theDayBeforeYesterday = new Date(now - 1000 * 60 * 60 * 24 * 2);
+				theDayBeforeYesterday.setHours(0);
+				theDayBeforeYesterday.setMinutes(0);
+				theDayBeforeYesterday.setSeconds(0);
+				theDayBeforeYesterday.setMilliseconds(0);
+				if (time > theDayBeforeYesterday && argonConfig.language.indexOf("zh") == 0){
+					return "前天" + " " + time.getHours() + ":" + addPreZero(time.getMinutes(), 2);
+				}
+				if (delta < 1000 * 60 * 60 * 24 * 30){
+					return parseInt(delta / (1000 * 60 * 60 * 24)) + " " + "天前";
+				}
+				let theFirstDayOfThisYear = new Date(now);
+				theFirstDayOfThisYear.setMonth(0);
+				theFirstDayOfThisYear.setDate(1);
+				theFirstDayOfThisYear.setHours(0);
+				theFirstDayOfThisYear.setMinutes(0);
+				theFirstDayOfThisYear.setSeconds(0);
+				theFirstDayOfThisYear.setMilliseconds(0);
+				if (time > theFirstDayOfThisYear){
+					return (time.getMonth() + 1) + "-" + time.getDate();
+				}
+				return time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate();
 			}
 		</script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
@@ -74,12 +176,12 @@
 				margin-bottom: 50px;
 			}
 			.header {
-                height: 60vh;
-                width: 100vw;
-                padding-left: var(--sidebar-width);
-                margin-left: calc(0px - var(--sidebar-width));
+				height: 60vh;
+				width: 100vw;
+				padding-left: var(--sidebar-width);
+				margin-left: calc(0px - var(--sidebar-width));
 				transition: all .25s ease-out;
-            }
+			}
 			body.close .header{
 				padding-left: 0;
 				margin-left: 0;
@@ -104,7 +206,7 @@
 				white-space: nowrap;
 			}
 			#background{
-                background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
+				background: linear-gradient(150deg, #7795f8 15%, #6772e5 70%, #555abf 94%);
 				position: fixed;
 				left: 0;
 				right: 0;
@@ -127,12 +229,12 @@
 			p.tip, blockquote {
 				border-radius: 3px !important;
 			}
-			.markdown-section p a, .markdown-section ul a{
+			.markdown-section p a, .markdown-section ul a, #edit-history a {
 				color: var(--theme-color) !important;
 				text-decoration: none !important;
 				position: relative;
 			}
-			.markdown-section p a:before, .markdown-section ul a:before {
+			.markdown-section p a:before, .markdown-section ul a:before, #edit-history a:before {
 				content: " ";
 				position: absolute;
 				top: auto;
@@ -145,7 +247,7 @@
 				transform: scaleX(0);
 				backface-visibility: hidden;
 			}
-			.markdown-section p a:hover:before, .markdown-section ul a:hover:before {
+			.markdown-section p a:hover:before, .markdown-section ul a:hover:before, #edit-history a:hover:before {
 				transform: scaleX(1);
 			}
 			.markdown-section h1,
@@ -217,7 +319,7 @@
 				left: unset;
 				right: -2px;
 			}
-			#main:after {
+			#edit-history:after {
 				content: '- EOF -';
 				position: absolute;
 				bottom: -40px;
@@ -267,6 +369,7 @@
 				--table-row-odd-background: #323232;
 				--table-cell-border-color: #555;
 				--hr-border: 1px solid #666;
+				--code-inline-background: #464646;
 			}
 			html.darkmode #main {
 				background: #353535;
@@ -317,6 +420,59 @@
 			}
 			html.darkmode #darkmode-toggle:before {
 				content: '🌙 Dark Mode: ON';
+			}
+
+			#edit-history {
+				background: #fff;
+				border-radius: 15px;
+				box-shadow: 0 15px 35px rgb(50 50 93 / 10%), 0 5px 15px rgb(0 0 0 / 7%);
+				margin-top: 20px;
+				max-width: 1100px;
+				margin-bottom: 50px;
+			}
+			html.darkmode #edit-history {
+				background: #353535;
+			}
+
+			#edit-history-list {
+				margin-bottom: 20px;
+			}
+			.commit-item {
+				display: flex;
+				margin-bottom: 15px;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-items: center;
+				align-content: center;
+			}
+			.commit-avatar-container {
+				width: 30px;
+				height: 30px;
+				margin-right: 10px;
+			}
+			.commit-avatar-container:before{
+				display: none;
+			}
+			.commit-avatar {
+				border-radius: 50%;
+				width: 100%;
+				height: 100%;
+			}
+			.commit-author {
+				margin-right: 10px;
+				font-weight: 600;
+			}
+			.commit-date {
+				font-size: 16px;
+				opacity: .8;
+			}
+			.commit-message {
+				flex: 1;
+			}
+			#latest-edit-time {
+				font-size: 16px;
+				opacity: .7;
+				font-weight: normal;
 			}
 		</style>
 		<script>

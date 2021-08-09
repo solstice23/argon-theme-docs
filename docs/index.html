@@ -86,8 +86,8 @@
 								<a href="${commit.author.html_url}" class="commit-avatar-container" target="_blank">
 									<img dragable="false" class="commit-avatar" src="${commit.author.avatar_url}" />
 								</a>
-								<a class="commit-author" href="${commit.html_url}" target="_blank">${commit.commit.author.name}</a>
-								<span class="commit-message">${commit.commit.message}</span>
+								<a class="commit-author" href="${commit.html_url}" target="_blank">${htmlSpecialChars(commit.commit.author.name)}</a>
+								<span class="commit-message">${htmlSpecialChars(commit.commit.message)}</span>
 								<span class="commit-date" title="${new Date(commit.commit.author.date).toLocaleString()}">${humanTimeDiff(commit.commit.author.date)}</span>
 							</div>
 						`;
@@ -160,6 +160,9 @@
 					return (time.getMonth() + 1) + "-" + time.getDate();
 				}
 				return time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate();
+			}
+			function htmlSpecialChars(str) {
+				return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 			}
 		</script>
 		<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>

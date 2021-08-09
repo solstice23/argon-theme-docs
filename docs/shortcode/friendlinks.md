@@ -40,7 +40,9 @@ Argon 将从 Wordpress 的链接管理器中读取友链。
 | sort   | link_id: 按 ID 排序<br/>url: 按链接排序<br/>name: 按名称排序<br/>owner: 按添加友链的用户排序<br/>rating: 按评分排序<br/>visible: 按可见度排序<br/>length: 按长度排序<br/>rand: 随机顺序 | link_id | 友链排序规则                                            | 否       |
 | order  | ASC:升序<br>DESC:降序                                        | ASC     | 友链排序方式                                            | 否       |
 
->一些参数不是必需的，如果不写某个参数则会使用默认值例子
+>一些参数不是必需的，如果不写某个参数则会使用默认值
+
+## 例子
 
 ### 代码
 

@@ -27,7 +27,9 @@ Argon 提供了一些短代码的支持。
 | icon      | [Font Awesome](https://fontawesome.com/v4.7.0/icons/) 中的图标名称 (不带 fa-) | 无     | 标题前的图标 | 否       |
 | collapsed | true/false                                                   | true   | 默认是否折叠 | 否       |
 
->一些参数不是必需的，如果不写某个参数则会使用默认值例子
+>一些参数不是必需的，如果不写某个参数则会使用默认值
+
+## 例子
 
 ### 代码
 

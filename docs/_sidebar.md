@@ -6,6 +6,7 @@
   * [图标](icon.md)
   * [侧栏](sidebar.md)
   * [评论表情](emotions.md)
+  * [Gutenberg 编辑器](gutenberg.md)
 * **短代码**
 * * [引入](/shortcode/readme.md)
   * [TODO 复选框](/shortcode/todo.md)

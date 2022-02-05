@@ -19,8 +19,10 @@ Argon 主题提供以下 Filters。
 | argon_comment_title   | 评论卡片标题 (默认为 "发送评论") |
 | argon_comment_title_editing   | 评论卡片编辑时的标题 (默认为 "编辑评论") |
 | argon_comment_textarea_placeholder   | 评论输入框 Placeholder 的内容 (默认为 "评论内容") |
+| argon_comment_extra_info    | 插入评论额外信息，位于评论者昵称后 |
 | argon_page_background_url   | 博客背景图 |
 | argon_page_background_dark_url   | 博客背景图 (夜间模式下) |
+| argon_html_before_wordcount    | 用于字数统计计算的 HTML 文章源码 |
 
 
 欢迎通过 Issue / PR 来增加有必要的 Filter。
@@ -47,7 +49,7 @@ Description: Just an example
 Version: 1.0
 */
 	function replace_placeholder(){
-		return "想说什么呢?";
+		return "说点什么...";
 	}
 	add_filter('argon_comment_textarea_placeholder' , 'replace_placeholder');
 ?>

@@ -34,6 +34,12 @@ A: 需要安装邮件相关的插件，例如 `WP Mail SMTP`。
 
 A: 可能是 Wordpress 伪静态缓存未及时更新。请到 "Wordpress 管理后台-设置-固定链接" 页面中直接点击 "保存更改" 来刷新缓存。
 
+如果使用的是 Nginx，可能需要添加伪静态：
+
+```
+rewrite /unsubscribe-comment-mailnotice/?(.*)$ /wp-content/themes/argon/unsubscribe-comment-mailnotice.php$1;
+```
+
 ## Q: 我编辑了主题的文件，但是主题更新后编辑的内容消失了
 
 A: 如果你希望修改主题，不建议直接修改主题文件，更新主题时会被替换。

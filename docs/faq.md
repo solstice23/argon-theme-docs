@@ -14,6 +14,9 @@ A: 检查 `/wp-content/themes` 下的主题目录名称是否为 `argon`。
 
 A: 请将该插件的初始化代码写入 Pjax 回调中或关闭 Pjax。Argon 设置页中有 Pjax 回调的说明。
 
+## Q: 错误 `Parse error: syntax error, unexpected '?' in xxx`
+
+A: 请升级 PHP 版本至 7.0 及以上。
 ## Q: 评论失败
 
 A: 请检查 Wordpress 是否安装在子目录，如果是，请在 Argon 设置中设置子目录的路径。

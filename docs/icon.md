@@ -1,12 +1,12 @@
 # 图标
 
-Argon 主题内置了 [Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/icons/) 图标库。
+Argon 主题内置了 [Font Awesome 4](https://fontawesome.com/v4/icons/) 图标库。
 
 ## 添加图标
 
 使用 `<i class="fa fa-xxxx"></i>` 添加图标。其中 xxxx 为图标名。
 
-> 请访问 [Font Awesome 4.7.0](https://fontawesome.com/v4.7.0/icons/) 图标库自行查询对应的图标名。
+> 请访问 [Font Awesome 4](https://fontawesome.com/v4/icons/) 图标库自行查询对应的图标名。
 
 ## 在菜单中添加图标
 

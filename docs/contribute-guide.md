@@ -8,7 +8,7 @@
 
 名字不要太随意即可 <spoiler>(例如 OI 中的命名很大一部分是不被接受的)</spoiler>
 
-PHP 函数名、HTMl ID 名: 下划线命名
+PHP 函数名、HTML ID 名: 下划线命名
 
 PHP 变量名、JS 变量名、CSS 类名: 驼峰命名
 
@@ -45,7 +45,7 @@ argontheme.js
 
 ### Javascript
 
-翻译字符串位于 `argontheme.js` 的 `translation` 数组中，在该数组中增加相应语言的翻译即可。
+翻译字符串位于 `/assets/src/js/i18n` 目录中，新建相应语言的翻译 `.js` 文件，再在 `/assets/src/js/i18n.js` 中引入 `translation` 数组，构建即可。
 
 ### Gutenberg 编辑器
 

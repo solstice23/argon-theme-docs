@@ -17,6 +17,7 @@ A: 请将该插件的初始化代码写入 Pjax 回调中或关闭 Pjax。Argon 
 ## Q: 错误 `Parse error: syntax error, unexpected '?' in xxx`
 
 A: 请升级 PHP 版本至 7.0 及以上。
+
 ## Q: 评论失败
 
 A: 请检查 Wordpress 是否安装在子目录，如果是，请在 Argon 设置中设置子目录的路径。
@@ -56,6 +57,10 @@ A: 如果你希望修改主题，不建议直接修改主题文件，更新主�
 ## Q: 有部分链接没有 HTTPS，浏览器显示 "与此网站建立的链接并非完全安全"
 
 A: 请检查 "Wordpress 设置 - 常规" 中的 "WordPress地址（URL）" 和 "站点地址（URL）" 两项是否为 HTTPS。
+
+## Q: 是否会移植到 XXX 博客框架
+
+A: 没有计划也没有精力移植，不过欢迎 Fork 子项目移植到不同框架
 
 ## Q: 有 BUG/我想要新功能
 

@@ -39,5 +39,7 @@
 * **链接**
 * * [argon-theme - Github](https://github.com/solstice23/argon-theme)
   * [solstice23's Blog](https://solstice23.top/)
+  * [用户墙](https://argon-showcase.solstice23.top/)
+  * [Demo 站点](https://argon-demo.solstice23.top/)
   * [Argon 文档 (旧)](https://argon-docs-old.solstice23.top/)
 

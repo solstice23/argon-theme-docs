@@ -1,6 +1,6 @@
 # 快速开始
 
-!> Argon Theme **仅支持** Wordpress 4.4 及以上的版本。
+!> Argon Theme **仅支持** Wordpress 5.0 及以上的版本。
 
 ## 安装主题
 
